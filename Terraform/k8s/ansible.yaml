@@ -1,0 +1,10 @@
+
+- hosts: localhost
+  tasks:
+
+    - name: Create service
+      command: kubectl apply -f app.yaml
+    
+    - name: Create Auto Scaling
+      command: kubectl autoscale deployment timaoapp --cpu-percent=50 --min=1 --max=10
+
